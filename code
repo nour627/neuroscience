@@ -1,0 +1,14 @@
+import random
+import math
+
+def net(x):
+    w = [random.uniform(-0.5, 0.5) for _ in range(4)]
+    b = [0.5, 0.7]
+    h = [math.tanh(x * w[0] + b[0]), math.tanh(x * w[1] + b[0])]
+    return math.tanh(h[0] * w[2] + h[1] * w[3] + b[1])
+
+inp = [1.0, 0.5, -1.0]
+for i in inp:
+    out = net(i)
+    print(f"Input: {i}")
+    print(f"Output: {out}")
